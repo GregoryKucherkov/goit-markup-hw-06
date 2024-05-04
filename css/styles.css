@@ -37,9 +37,7 @@ body {
     font-size: 36px;
     line-height: 1.11;
     letter-spacing: 0.02em;
-
     max-width: 320px;
-    padding-top: 112px;
     
     text-align: center;
     color: var(--clr-white);
@@ -68,7 +66,6 @@ body {
 
 /* Mobile */
 .h1-section .container {
-    max-width: 428px;
 
     background-color: var(--navy-bl);
     padding: 112px 0;
@@ -76,8 +73,7 @@ body {
     background-position: center; 
     background-size: cover;
 
-    background-image: linear-gradient
-        (rgba(46, 47, 66, 0.7),
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)),
         url('../images/hero/hero_mobile_1x.jpg');
 }
@@ -124,7 +120,6 @@ body {
 }
 
 
-
 /* Tablet */
 @media only screen and (min-width: 768px) {
     .h1-section .container {
@@ -140,7 +135,6 @@ body {
         padding: 188px 0;
     }
 }
-
 
 
 .h1-button {
@@ -204,7 +198,7 @@ ul, ol {
     padding-left: 0;
 }
 
- /* mobile vers. -> basic*/
+ /* mobile */
  .container {
    
     min-width: 320px;
@@ -213,7 +207,7 @@ ul, ol {
     margin: 0 auto;
     }
 
-/* Tablets vers. */
+/* Tablets */
 @media only screen and (min-width: 768px)  {
     .container {
         max-width: 768px;
@@ -221,7 +215,7 @@ ul, ol {
     } 
 }    
 
-/* Desktop vers. */
+/* Desktop  */
 @media only screen and (min-width: 1158px) {
     .container {
         max-width: 1158px;
@@ -264,6 +258,7 @@ ul, ol {
 @media only screen and (max-width: 1157px) {
     .adress-opt {
         flex-wrap: wrap;
+        flex-direction: column;
         gap: 12px;
         justify-content: end;
 
@@ -355,6 +350,14 @@ ul, ol {
 .adress-opt a:hover,
 .adress-opt a:focus {
     color: var(--clr-ocean);
+}
+
+@media only screen and (max-width: 1157px) {
+    .adress-opt-items a {
+        font-size: 12px;
+        line-height: 1.16;
+        letter-spacing: 0.04em;
+}
 }
 
 .visually-hidden {
@@ -515,7 +518,7 @@ ul, ol {
     }
 }
 
-/* mobile -> basic */
+/* mobile  */
 .features-wraper {
     display: none;
 }
@@ -562,7 +565,6 @@ ul, ol {
 }
 
 
-
 .serv-list {
     display: flex;
     gap: 24px;
@@ -574,6 +576,7 @@ ul, ol {
     font-size: 36px;
     font-weight: 700;
     line-height: 1.11;
+    text-align: center;
 }
 
 
@@ -587,8 +590,10 @@ ul, ol {
         }
 }
 
-.features-description {
-    font-weight: 500;
+@media only screen and (max-width: 1157px) {
+    .features-description {
+        font-weight: 500;
+    }
 }
 
 /* Desktop */
@@ -624,7 +629,12 @@ ul, ol {
     padding-bottom: 32px;
 }
 
-.container.footer {
+.container-footer {
+    min-width: 320px;
+    max-width: 428px;
+    padding: 0 16px;
+    margin: 0 auto;
+
     display: flex;
     flex-direction: column;
     gap: 72px;
@@ -633,20 +643,26 @@ ul, ol {
 }
 
 @media only screen and (min-width: 768px) {
-    .container.footer {
+    .container-footer {
+        max-width: 584px;
+
         flex-direction: row;
         flex-wrap: wrap;
-        padding-left: 108px;
-        padding-right: 108px;
+        /* padding-left: 108px;
+        padding-right: 108px; */
         gap: 72px 24px;
     }
 }
 
 @media only screen and (min-width: 1158px) {
-    .container.footer {
+    .container-footer {
+        max-width: 1158px;
+        padding: 0 15px;
+
         flex-wrap: nowrap;
         padding: 100px 0;
         align-items: baseline;
+        gap: 0;
     }
 }
 
@@ -732,28 +748,26 @@ ul, ol {
 
 /* Mobile */
 .customers {
-    padding: 96px 0 24px 0;
+    padding: 96px 0;
 }
 
 /* Desktop */
 @media only screen and (min-width: 1158px) {
     .customers {
-        padding: 120px 0 48px 0;
+        padding: 120px 0;
     }
 }
-
 
 
 /* Mobile */
 .customers-list {
     display: inline-flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 72px 16px;
 }
 
 .customers-item {
-    max-width: calc((100% - 16px) / 2);
-    padding-bottom: 72px;
+    width: calc((100% - 16px) / 2);
 }
 
 
@@ -765,15 +779,17 @@ ul, ol {
         align-items: center;
     }
     .customers-item {
-        max-width: calc((100% - 48px) / 3); 
+        width: calc((100% - 48px) / 3); 
     }
 }
+
 
 
 /* Desktop */
 @media only screen and (min-width: 1158px) {
     .customers-list {
         align-items: flex-start;
+        flex-wrap: nowrap;
     }
 }
 
@@ -782,6 +798,7 @@ ul, ol {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 
     transition-property: color, border-color;
     transition-duration: 250ms;
@@ -789,8 +806,14 @@ ul, ol {
 
     border: 1px solid var(--clr-light-slate);
     border-radius: 4px;
-    width: 168px;
+    width: 100%;
     height: 88px;
+}
+
+@media only screen and (min-width: 1158px) {
+    .customers-link {
+        width: 168px;
+    }
 }
 
 
@@ -1017,6 +1040,7 @@ textarea {
     max-width: 360px;
     font-weight: 500;
     margin-bottom: 16px;
+    text-align: center;
 }
 
 .contacts-form-wrapper {
@@ -1230,6 +1254,7 @@ input[type='checkbox']:checked+.review-form-agreement-desc>.review-form-checkbox
     cursor: pointer;
     border: none;
     border-radius: 50%;
+    border-color: var(--clr-cornflower);
     outline: none;
 }
 
@@ -1261,7 +1286,6 @@ input[type='checkbox']:checked+.review-form-agreement-desc>.review-form-checkbox
 }
 
 
-
 .menu-container.is-open {
     transform: translateX(0);
 }
@@ -1274,8 +1298,8 @@ input[type='checkbox']:checked+.review-form-agreement-desc>.review-form-checkbox
 }
 
 .js-close-menu {
-    background-color: var(--clr-cornflower);
-
+    border: 1px solid var(--clr-cornflower);
+    background: transparent;
 }
 
 .mobile-menu {
@@ -1340,12 +1364,13 @@ input[type='checkbox']:checked+.review-form-agreement-desc>.review-form-checkbox
 
 .mobile-socials {
     display: flex;
-    gap: 56px;
+    justify-content: space-between;
 }
 
-@media only screen and (max-width: 427px) {
+@media only screen and (min-width: 427px) {
     .mobile-socials {
-        justify-content: space-between;
+        justify-content: initial; 
+        gap: 56px;
     }
 }
 
@@ -1365,6 +1390,12 @@ input[type='checkbox']:checked+.review-form-agreement-desc>.review-form-checkbox
 
 .mobile-socials-icon {
     fill: var(--clr-cloud);
+}
+
+.mobile-socials-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* End Mobile menu  */
